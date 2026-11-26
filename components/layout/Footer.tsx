@@ -6,28 +6,23 @@ import Image from "next/image";
 import { FaInstagram, FaFacebookF, FaPaw } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiPhoneCall } from "react-icons/fi";
-
-const footerLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About Us", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Why Choose Us", href: "#why-choose-us" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact Us", href: "#contact" },
-];
+import { site } from "@/data";
 
 export default function Footer() {
+  const { brand, navbar, contact, footer } = site;
+  const navLinks = navbar.navItems;
+
   return (
     <footer className="w-full bg-[#fbf8f5] font-poppins pt-12 sm:pt-16 select-none overflow-hidden">
-      <div className="max-w-[1330px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="">
+      <div className="max-w-[1330px] mx-auto">
+        <div className="px-4 sm:px-6 lg:px-8">
           {/* Top Header: Logo on left, Social Media on right */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-4 sm:pb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 sm:pb-10">
             {/* Brand Logo */}
             <Link href="/" className="inline-block shrink-0">
               <Image
-                src="/logo/logo-blacks.png"
-                alt="VETRIVA - Pet Care & Wellness"
+                src={brand.logo}
+                alt={brand.alt}
                 width={220}
                 height={60}
                 className="h-12 sm:h-16 w-auto object-contain"
@@ -36,34 +31,33 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex items-center gap-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-10 h-10 rounded-full flex items-center justify-center text-[#1c3829] hover:text-[#e75a24] hover:bg-orange-50 transition-all duration-200"
-              >
-                <FaInstagram className="w-7 h-7" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-10 h-10 rounded-full flex items-center justify-center text-[#1c3829] hover:text-[#e75a24] hover:bg-orange-50 transition-all duration-200"
-              >
-                <FaFacebookF className="w-7 h-7" />
-              </a>
+              {footer.socialLinks.map((social) => {
+                const isIg = social.platform.toLowerCase() === "instagram";
+                const Icon = isIg ? FaInstagram : FaFacebookF;
+
+                return (
+                  <a
+                    key={social.platform}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.platform}
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-[#1c3829] hover:text-[#e75a24] hover:bg-orange-50 transition-all duration-200"
+                  >
+                    <Icon className={isIg ? "w-6 h-6" : "w-5 h-5"} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
           {/* Divider with Center Paw Badge */}
-          <div className="relative flex items-center justify-center ">
+          <div className="relative flex items-center justify-center my-2">
             {/* Continuous dark green line */}
-            <div className="w-full h-[3px] bg-[#1c3829]" />
+            <div className="w-full h-[2px] bg-[#1c3829]" />
             {/* Centered circular paw badge */}
             <div className="absolute bg-[#1c3829] text-white p-2.5 rounded-full shadow-sm flex items-center justify-center">
-              <FaPaw className="w-7 h-7" />
+              <FaPaw className="w-4 h-4" />
             </div>
           </div>
 
@@ -71,13 +65,13 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pt-6 pb-12 sm:pb-16 text-center lg:text-left">
             {/* Address & Tagline */}
             <div className="text-[#1c3829] text-sm sm:text-[15px] font-medium leading-relaxed">
-              <p>Comprehensive Pet Care, Grooming &amp; Wellness Services</p>
-              <p className="text-gray-600 mt-0.5">New Delhi, India</p>
+              <p>{footer.tagline}</p>
+              <p className="text-gray-600 mt-0.5">{footer.location}</p>
             </div>
 
             {/* Nav Links with Orange Separators */}
             <div className="flex flex-wrap items-center justify-center lg:justify-end gap-x-3 sm:gap-x-4 gap-y-2 text-sm sm:text-[15px] font-semibold text-[#1c3829]">
-              {footerLinks.map((link, index) => (
+              {navLinks.map((link, index) => (
                 <React.Fragment key={link.name}>
                   <Link
                     href={link.href}
@@ -85,7 +79,7 @@ export default function Footer() {
                   >
                     {link.name}
                   </Link>
-                  {index < footerLinks.length - 1 && (
+                  {index < navLinks.length - 1 && (
                     <span className="text-[#e75a24] font-normal select-none">|</span>
                   )}
                 </React.Fragment>
@@ -95,22 +89,22 @@ export default function Footer() {
 
           {/* Center CTA Section: "Are you ready to get started?" + Contact badges */}
           <div className="flex flex-col items-center justify-center text-center pb-14 sm:pb-20">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-medium text-[#1c3829] tracking-tight mb-8">
-              Are you ready to <span className="text-[#e75a24]">get started?</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1c3829] tracking-tight mb-8">
+              {footer.cta.heading} <span className="text-[#e75a24]">{footer.cta.headingHighlight}</span>
             </h2>
 
             {/* Email & Phone Contact Bar */}
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-transparent">
               {/* Email Contact */}
               <a
-                href="mailto:info@vetriva.com"
+                href={`mailto:${contact.info.email.mailto}`}
                 className="flex items-center gap-3 group transition-transform duration-200 hover:scale-105"
               >
-                <div className="w-12 h-12 rounded-lg bg-[#e3efe7] text-[#1c3829] flex items-center justify-center shrink-0">
-                  <HiOutlineMail className="w-7 h-7" />
+                <div className="w-11 h-11 rounded-lg bg-[#e3efe7] text-[#1c3829] flex items-center justify-center shrink-0">
+                  <HiOutlineMail className="w-5 h-5" />
                 </div>
                 <span className="text-sm sm:text-base font-semibold text-[#1c3829] group-hover:text-[#e75a24] transition-colors">
-                  info@vetriva.com
+                  {contact.info.email.address}
                 </span>
               </a>
 
@@ -119,14 +113,14 @@ export default function Footer() {
 
               {/* Phone Contact */}
               <a
-                href="tel:+919876543210"
+                href={`tel:${contact.info.call.tel}`}
                 className="flex items-center gap-3 group transition-transform duration-200 hover:scale-105"
               >
-                <div className="w-12 h-12 rounded-lg bg-[#e3efe7] text-[#1c3829] flex items-center justify-center shrink-0">
-                  <FiPhoneCall className="w-7 h-7" />
+                <div className="w-11 h-11 rounded-lg bg-[#e3efe7] text-[#1c3829] flex items-center justify-center shrink-0">
+                  <FiPhoneCall className="w-5 h-5" />
                 </div>
                 <span className="text-sm sm:text-base font-semibold text-[#1c3829] group-hover:text-[#e75a24] transition-colors">
-                  +91 98765 43210
+                  {contact.info.call.number}
                 </span>
               </a>
             </div>
@@ -137,11 +131,11 @@ export default function Footer() {
       {/* Bottom Copyright Bar with Split Green Accent Lines */}
       <div className="w-full bg-[#1c3829] py-5 px-4 text-white text-xs sm:text-sm font-medium">
         <div className="max-w-[1330px] mx-auto flex items-center justify-center gap-4 sm:gap-8">
-          <div className="hidden md:block flex-1 h-[2px] bg-white/50" />
+          <div className="hidden md:block flex-1 h-[1px] bg-white/20" />
           <p className="text-center tracking-wide text-white/90" suppressHydrationWarning>
-            &copy; 2026 VETRIVA. All Rights Reserved. Powerd by Lestow
+            {footer.copyright}
           </p>
-          <div className="hidden md:block flex-1 h-[2px] bg-white/50" />
+          <div className="hidden md:block flex-1 h-[1px] bg-white/20" />
         </div>
       </div>
     </footer>

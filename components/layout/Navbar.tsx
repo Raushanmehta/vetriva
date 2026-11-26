@@ -1,27 +1,47 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Menu, X } from "lucide-react";
 
-interface NavItem {
-  name: string;
-  href: string;
-  id: string;
-}
-
-const navLinks: NavItem[] = [
-  { name: "Home", href: "#home", id: "home" },
-  { name: "About Us", href: "#about", id: "about" },
-  { name: "Services", href: "#services", id: "services" },
-  { name: "Why Choose Us", href: "#why-choose-us", id: "why-choose-us" },
-  { name: "Testimonials", href: "#testimonials", id: "testimonials" },
-];
+import { site } from "@/data";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const navLinks = site.navbar.navItems;
+  const cta = site.navbar.ctaButton;
+  const logo = site.navbar.logo.src;
+  const alt = site.navbar.logo.alt;
+
+  useEffect(() => {
+    // List of section IDs to observe
+    const sectionIds = ["home", "about", "services", "why-choose-us", "testimonials", "contact"];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 160; // Offset for sticky navbar
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const element = document.getElementById(id);
+        if (element) {
+          const top = element.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full py-3 px-4 sm:px-6 lg:px-8 select-none transition-all duration-300">
@@ -30,8 +50,8 @@ export default function Navbar() {
         {/* Brand Logo */}
         <Link href="#home" onClick={() => setActiveSection("home")} className="flex items-center shrink-0">
           <Image
-            src="/logo/logo-blacks.png"
-            alt="VETRIVA - Pet Care & Wellness"
+            src={logo}
+            alt={alt}
             width={170}
             height={50}
             className="h-12 sm:h-16 w-auto object-contain"

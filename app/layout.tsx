@@ -25,9 +25,11 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+import { site } from "@/data";
+
 export const metadata: Metadata = {
-  title: "VETRIVA - Pet Care & Wellness",
-  description: "Complete Pet Care & Wellness",
+  title: `${site.brand.name} - ${site.brand.tagline}`,
+  description: site.hero.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

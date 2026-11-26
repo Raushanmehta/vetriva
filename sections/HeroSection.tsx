@@ -3,8 +3,11 @@
 import React from "react";
 import Image from "next/image";
 import { FaPaw } from "react-icons/fa";
+import { site } from "@/data";
 
 export default function HeroSection() {
+  const { subtitle, titleLine1, titleLine2, description, backgroundImage, alt } = site.hero;
+
   return (
     <section
       id="home"
@@ -13,8 +16,8 @@ export default function HeroSection() {
       {/* Background Hero Banner Image (positioned to the right) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
-          src="/hero-banner.png"
-          alt="Healthier Pets, Happier Lives"
+          src={backgroundImage}
+          alt={alt}
           fill
           priority
           className="object-cover object-right lg:object-[82%_center]"
@@ -41,21 +44,20 @@ export default function HeroSection() {
             {/* Top Subtitle with Right Horizontal Dash */}
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
               <span className="text-[12px] sm:text-[16px] font-semibold tracking-[0.2em] uppercase text-[#475b50]">
-                Complete Pet Care &amp; Wellness
+                {subtitle}
               </span>
               <span className="w-12 sm:w-20 h-[2.5px] bg-[#d96739] rounded-full" />
             </div>
 
             {/* Main Headline */}
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[72px] font-bold tracking-tight leading-[1.08] text-[#556b55] mb-6">
-              Healthier Pets, <br />
-              <span className="text-[#cb653d]">Happier Lives.</span>
+              {titleLine1} <br />
+              <span className="text-[#cb653d]">{titleLine2}</span>
             </h1>
 
             {/* Sub-description Paragraph */}
             <p className="text-[#4e5b53] text-base sm:text-lg md:text-[19px] leading-relaxed max-w-lg mb-8 font-normal">
-              From expert veterinary care to grooming, wellness and boarding &mdash;
-              everything your pet needs, in one trusted place.
+              {description}
             </p>
 
             {/* Decorative Sage Green Paw Print with subtle accent line */}

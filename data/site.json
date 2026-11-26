@@ -1,0 +1,326 @@
+{
+  "Vetriva": {
+    "templateComponents": {
+      "template-1": {
+        "shared": {
+          "navbar": "VetrivaNavbar1",
+          "footer": "VetrivaFooter1"
+        },
+        "pages": {
+          "home": {
+            "components": [
+              {
+                "key": "hero",
+                "component": "VetrivaHero1"
+              },
+              {
+                "key": "about",
+                "component": "VetrivaAbout1"
+              },
+              {
+                "key": "services",
+                "component": "VetrivaServices1"
+              },
+              {
+                "key": "whyChooseUs",
+                "component": "VetrivaWhyChooseUs1"
+              },
+              {
+                "key": "testimonials",
+                "component": "VetrivaTestimonials1"
+              },
+              {
+                "key": "contact",
+                "component": "VetrivaContact1"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sections": {
+      "navbar": {
+        "variants": {
+          "VetrivaNavbar1": {
+            "logo": {
+              "src": "/logo/logo-blacks.webp",
+              "alt": "VETRIVA - Pet Care & Wellness",
+              "width": 170,
+              "height": 50
+            },
+            "navItems": [
+              { "name": "Home", "href": "#home", "id": "home" },
+              { "name": "About Us", "href": "#about", "id": "about" },
+              { "name": "Services", "href": "#services", "id": "services" },
+              { "name": "Why Choose Us", "href": "#why-choose-us", "id": "why-choose-us" },
+              { "name": "Testimonials", "href": "#testimonials", "id": "testimonials" }
+            ],
+            "ctaButton": {
+              "text": "Contact Us",
+              "href": "#contact",
+              "id": "contact"
+            }
+          }
+        }
+      },
+      "hero": {
+        "variants": {
+          "VetrivaHero1": {
+            "subtitle": "Complete Pet Care & Wellness",
+            "titleLine1": "Healthier Pets,",
+            "titleLine2": "Happier Lives.",
+            "description": "From expert veterinary care to grooming, wellness and boarding — everything your pet needs, in one trusted place.",
+            "backgroundImage": "/hero-banner.webp",
+            "alt": "Healthier Pets, Happier Lives"
+          }
+        }
+      },
+      "about": {
+        "variants": {
+          "VetrivaAbout1": {
+            "subtitle": "About Us",
+            "titleLine1": "Dedicated to the",
+            "titleHighlight": "Health & Happiness",
+            "titleLine2": "of Your Pets",
+            "description": "At VETRIVA, we are passionate about pets and their well-being. Our experienced team provides compassionate, comprehensive, and personalized care to keep your furry companions healthy, active, and happy at every stage of life.",
+            "mainPetImage": "/about-pet.webp",
+            "mainPetAlt": "Golden retriever and cat relaxing together",
+            "vetImage": "/vet-consultation.webp",
+            "vetAlt": "Veterinarian caring for a puppy",
+            "features": [
+              {
+                "id": 1,
+                "title": "Expert",
+                "subtitle": "Veterinary Care",
+                "icon": "Stethoscope"
+              },
+              {
+                "id": 2,
+                "title": "Personalized",
+                "subtitle": "Pet Wellness",
+                "icon": "Heart"
+              },
+              {
+                "id": 3,
+                "title": "Trusted by",
+                "subtitle": "Pet Parents",
+                "icon": "Star"
+              }
+            ]
+          }
+        }
+      },
+      "services": {
+        "variants": {
+          "VetrivaServices1": {
+            "subtitle": "Our Services",
+            "titlePrefix": "Comprehensive Care for",
+            "titleHighlight": "Your Pets",
+            "description": "From routine checkups to specialized treatments, we offer a full range of pet care services to keep your furry friends healthy and happy.",
+            "items": [
+              {
+                "id": 1,
+                "title": "Health Checkups",
+                "description": "Routine exams to keep your pet in top health.",
+                "icon": "Stethoscope"
+              },
+              {
+                "id": 2,
+                "title": "Vaccinations",
+                "description": "Essential vaccines for a stronger, healthier life.",
+                "icon": "Syringe"
+              },
+              {
+                "id": 3,
+                "title": "Surgery & Treatment",
+                "description": "Safe and advanced surgical care when needed.",
+                "icon": "Scissors"
+              },
+              {
+                "id": 4,
+                "title": "Grooming & Hygiene",
+                "description": "Professional grooming for a clean, healthy, and happy pet.",
+                "icon": "Sparkles"
+              },
+              {
+                "id": 5,
+                "title": "Nutrition & Diet",
+                "description": "Personalized diet guidance for better wellness.",
+                "icon": "UtensilsCrossed"
+              },
+              {
+                "id": 6,
+                "title": "Dental Care",
+                "description": "Keep their teeth and gums strong and healthy.",
+                "icon": "Smile"
+              },
+              {
+                "id": 7,
+                "title": "Preventive Care",
+                "description": "Early care to prevent future health issues.",
+                "icon": "ClipboardCheck"
+              },
+              {
+                "id": 8,
+                "title": "Boarding & Daycare",
+                "description": "A safe, comfortable, and caring home while you're away.",
+                "icon": "Home"
+              }
+            ]
+          }
+        }
+      },
+      "whyChooseUs": {
+        "variants": {
+          "VetrivaWhyChooseUs1": {
+            "subtitle": "Why Choose Us",
+            "titlePrefix": "Trusted Pet Care",
+            "titleMiddle": "You Can",
+            "titleHighlight": "Count On.",
+            "description": "At VETRIVA, we go beyond routine care to build lasting relationships with pets and their families. Our experienced team, modern facilities, and genuine love for animals ensure the highest standard of care at every visit.",
+            "mainImage": "/why-choose-us.webp",
+            "mainImageAlt": "Veterinarian caring for a golden retriever",
+            "badgeImage": "/cat.webp",
+            "badgeImageAlt": "Cute tabby cat",
+            "features": [
+              {
+                "id": 1,
+                "title": "Experienced & Caring Team",
+                "icon": "PawPrint"
+              },
+              {
+                "id": 2,
+                "title": "Advanced Treatment Options",
+                "icon": "Award"
+              },
+              {
+                "id": 3,
+                "title": "Safe & Hygienic Facilities",
+                "icon": "ShieldCheck"
+              },
+              {
+                "id": 4,
+                "title": "Convenient Appointments",
+                "icon": "CalendarCheck"
+              },
+              {
+                "id": 5,
+                "title": "Personalized Pet Care",
+                "icon": "Heart"
+              },
+              {
+                "id": 6,
+                "title": "Trusted by Pet Parents",
+                "icon": "Users"
+              }
+            ]
+          }
+        }
+      },
+      "testimonials": {
+        "variants": {
+          "VetrivaTestimonials1": {
+            "subtitle": "Testimonials",
+            "titlePrefix": "What Pet Parents",
+            "titleHighlight": "Say",
+            "items": [
+              {
+                "id": 1,
+                "rating": 5,
+                "content": "“The team at VETRIVA is amazing! They truly care about pets and provide exceptional care. My dog always feels comfortable here.”",
+                "author": "Rohan Mehta",
+                "role": "DOG PARENT",
+                "avatar": "/avatar-dog1.jpg"
+              },
+              {
+                "id": 2,
+                "rating": 5,
+                "content": "“Excellent service and a very friendly staff. The clinic is clean, well-equipped, and the doctors are highly professional.”",
+                "author": "Priya Sharma",
+                "role": "CAT PARENT",
+                "avatar": "/avatar-cat.jpg"
+              },
+              {
+                "id": 3,
+                "rating": 4,
+                "content": "“I'm really happy with the care my pet receives at VETRIVA. From checkups to grooming, everything is handled with love.”",
+                "author": "Amit Verma",
+                "role": "PET PARENT",
+                "avatar": "/avatar-beagle.jpg"
+              }
+            ]
+          }
+        }
+      },
+      "contact": {
+        "variants": {
+          "VetrivaContact1": {
+            "subtitle": "Contact Us",
+            "titlePrefix": "Get in Touch",
+            "titleHighlight": "with Us",
+            "description": "Have a question, need an appointment, or want to know more about our services? We're here to help you and your pet.",
+            "info": {
+              "location": {
+                "title": "Our Location",
+                "lines": [
+                  "123, Pet Care Avenue,",
+                  "Green Valley, New Delhi – 110016"
+                ]
+              },
+              "call": {
+                "title": "Call Us",
+                "number": "+91 98765 43210",
+                "tel": "+919876543210"
+              },
+              "email": {
+                "title": "Email Us",
+                "address": "info@vetriva.com",
+                "mailto": "info@vetriva.com"
+              },
+              "hours": {
+                "title": "Working Hours",
+                "schedule": [
+                  { "days": "Mon – Sat", "time": "9:00 AM – 7:00 PM" },
+                  { "days": "Sunday", "time": "10:00 AM – 5:00 PM" }
+                ]
+              }
+            },
+            "form": {
+              "heading": "Send Us a Message",
+              "placeholders": {
+                "name": "Your Name",
+                "email": "Your Email",
+                "phone": "Phone Number",
+                "message": "Your Message"
+              },
+              "successMessage": "Thank you! Your message has been sent."
+            }
+          }
+        }
+      },
+      "footer": {
+        "variants": {
+          "VetrivaFooter1": {
+            "logo": {
+              "src": "/logo/logo-blacks.webp",
+              "alt": "VETRIVA - Pet Care & Wellness",
+              "width": 220,
+              "height": 60
+            },
+            "tagline": "Comprehensive Pet Care, Grooming & Wellness Services",
+            "location": "New Delhi, India",
+            "socialLinks": [
+              { "platform": "Instagram", "href": "https://instagram.com" },
+              { "platform": "Facebook", "href": "https://facebook.com" }
+            ],
+            "cta": {
+              "heading": "Are you ready to",
+              "headingHighlight": "get started?"
+            },
+            "copyright": "© 2026 VETRIVA. All Rights Reserved. Powerd by Lestow"
+          }
+        }
+      }
+    }
+  }
+}

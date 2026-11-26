@@ -24,14 +24,14 @@ interface TestimonialCardProps {
  */
 export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <div className="relative group transition-all duration-300 hover:-translate-y-1">
+    <div className="relative group transition-all duration-300 ">
       {/* 
         The SVG Card Frame:
         Gives the exact smooth rounded corners (32px radius) and the smooth concave curve 
         scoop at the top-right corner, backed by clean border and drop-shadow.
       */}
       <div className="relative bg-white rounded-[32px] p-7 sm:p-8 flex flex-col justify-between border border-black/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.03)] group-hover:shadow-[0_16px_45px_rgba(0,0,0,0.08)] transition-all duration-300 overflow-hidden">
-        
+
         {/* Top-Right Decorative Concave Scoop Cutout Background */}
         <div className="absolute top-0 right-0 w-28 h-28 pointer-events-none z-0">
           {/* Circular cutout background that reveals the section background */}
@@ -52,11 +52,10 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className={`w-5 h-5 ${
-                  i < testimonial.rating
+                className={`w-5 h-5 ${i < testimonial.rating
                     ? "fill-[#f59e0b] text-[#f59e0b]"
                     : "fill-gray-200 text-gray-200"
-                }`}
+                  }`}
               />
             ))}
           </div>
